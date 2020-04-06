@@ -6,8 +6,8 @@ router.get("/", function (req, res, next) {
   res.json({ hello: "HI" });
 });
 
-router.get("/paging", async (req, res, next) => {
-  console.log("paing router에 왔습니다");
+router.get("/todo", async (req, res, next) => {
+  console.log("todo list 조회");
   let todos;
   try {
     todos = await Todo.find({});
@@ -16,5 +16,13 @@ router.get("/paging", async (req, res, next) => {
   }
   res.json(todos);
 });
-
+router.post("/todo", async (req, res, next) => {
+  console.log("todo 생성");
+  console.log(req);
+  const todo = new Todo({
+    content: req.body.content,
+    done: false,
+  });
+  returnres.json(await todo.save());
+});
 module.exports = router;
