@@ -14,7 +14,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
 const corsOptions = {
-  origin: "https://todolist-web.netlify.com/",
+  origin: "https://todolist-web.netlify.com",
   credentials: true,
 };
 
