@@ -37,5 +37,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-app.listen(4000);
-console.log("PORT 4000 works");
+const PORT = process.env.PORT;
+app.listen(PORT);
+console.log(`PORT ${PORT} works`);
