@@ -18,11 +18,13 @@ router.get("/todo", async (req, res, next) => {
 });
 router.post("/todo", async (req, res, next) => {
   console.log("todo 생성");
-  console.log(req);
+  console.log(req.body);
   const todo = new Todo({
-    content: req.body.content,
+    content: req.body.params.content,
     done: false,
   });
-  returnres.json(await todo.save());
+  const data = await todo.save();
+  return res.json(data);
 });
+
 module.exports = router;
